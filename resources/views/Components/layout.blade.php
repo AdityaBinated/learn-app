@@ -7,6 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel-Learn</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom list marker colors */
+        .list-marker-red::marker {
+            color: red; /* Red color */
+        }
+        .list-marker-blue::marker {
+            color: red; /* red color */
+        }
+    </style>
 </head>
 
 <body>
@@ -42,6 +51,7 @@
                                     <!-- Helper function request() is used for condition for navbar is() is used for href -->
                                     <x-nav-link href="/" :active="request()->is('/') ">Home</x-nav-link>
                                     <x-nav-link href="/about" :active="request()->is('about') ">About</x-nav-link>
+                                    <x-nav-link href="/jobs" :active="request()->is('jobs') ">Jobs</x-nav-link>
                                     <x-nav-link href="/contact" :active="request()->is('contact') ">Contact</x-nav-link>
                                 </div>
                             </div>
@@ -55,8 +65,8 @@
                   <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{$headings}}</h1>
                 </div>
               </header>
-           
-            
+
+
         </div>
 {{ $slot}}
 </body>
