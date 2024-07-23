@@ -11,9 +11,8 @@
 
 <body>
     {{-- Used to print element in <x-layout> --}}
-        {{-- 1.
-        <?php echo $slot ?>
-        2. {{$slot}} --}}
+        {{--1.<?php echo $slot ?>
+            2. {{$slot}} --}}
 
         {{-- {{$slot}} --}}
         {{-- <nav>

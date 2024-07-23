@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \Illuminate\Support\Arr;
 
 Route::get('/', function () {
     return view('home');        
@@ -12,16 +13,41 @@ Route::get('/jobs', function () {
     return view('jobs',[
         'jobs' =>[
         [
-        'title'=>'CEO',
-        'salary'=>'$50,000'
+        'id'=>1,
+        'title'=>'CEO ',
+        'salary'=>' $50,000 '
         ],
     
         [
-        'title'=>'CTO',
-        'salary'=>'$40,000'
+        'id'=>2,
+        'title'=>'CTO ',
+        'salary'=>' $40,000 '
         ]
     ]
-    ]);                //directly prints on localhost/about view
+    ]);                //show array in jobs.blade.php
+});
+
+
+Route::get('/job/{id}', function ($id) {  //for.eg /job/1
+ //   dd($id);  dump and die function
+ $jobs =[
+    [
+    'id'=>1,
+    'title'=>'CEO ',
+    'salary'=>' $50,000 '
+    ],
+
+    [
+    'id'=>2,
+    'title'=>'CTO ',
+    'salary'=>' $40,000 '
+    ]
+    ];
+
+    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);  //in jobs.blade.php view by clicking on list, this job.blade.php is view| Arr is a method in laravel, ::first is used to pass first array
+    // dd($job);
+
+    return view('job',['jobs' => $job]);   //passes $job     
 });
 
 Route::get('/about-direct', function () {
